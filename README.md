@@ -17,17 +17,17 @@ I develop an ensemble of 5+2 CNN models implemented in `PyTorch`. My solution re
 ## Project structure
 
 The project has the following structure:
-- `notebooks/`: `.ipynb` notebooks for training the CNN base models and ensembling.
-- `functions/`: `.py` modules with training, inference and data processing functions.
-- `input/`: input data. Images are not uploaded to GitHub due to size constraints and can be downloaded [here](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification).
-- `output/`: model weights and diagrams exported from notebooks.
+- `codes/`: `.py` modules with training, inference and data processing functions.
+- `notebooks/`: `.ipynb` notebooks for training CNN models and ensembling.
+- `input/`: input images (not included due to size constraints, can be downloaded [here](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification)).
+- `output/`: model configurations, weights and figures exported from notebooks.
 
 
 ## Working with the repo
 
 My solution can be reproduced in the following steps:
 1. Downloading competition data and adding it into the `input/` folder.
-2. Running all training notebooks `model_x.ipynb` to obtain weights of base models.
+2. Running five training notebooks `model_x.ipynb` to obtain weights of base models.
 3. Running the ensembling notebook `ensembling.ipynb` to obtain the final prediction.
 
 All `model_x` notebooks have the same structure and differ in model/data parameters. Different versions are included to ensure reproducibility. It is sufficient to inspect one of the PyTorch modeling codes and go through the `functions/` folder to understand the training process. The ensembling code is also provided in this [Kaggle notebook](https://www.kaggle.com/kozodoi/71st-place-ensembling-pipeline/output).
