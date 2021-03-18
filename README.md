@@ -25,7 +25,7 @@ The project has the following structure:
 - `output/`: model configurations, weights and figures exported from the notebooks
 
 
-## Reproducing submission
+## Reproducing solution
 
 The solution can be reproduced in the following steps:
 1. Downloading competition data and placing it in the `input/` folder.
