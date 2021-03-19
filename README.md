@@ -1,6 +1,6 @@
 # RANZCR Catheter and Line Position Challenge
 
-Files and codes with the top-5% solution to the [RANZCR CLiP - Catheter and Line Position Challenge](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification).
+The top-5% solution to the [RANZCR CLiP - Catheter and Line Position Challenge](https://www.kaggle.com/c/ranzcr-clip-catheter-line-classification) on Kaggle.
 
 ![sample](https://i.postimg.cc/tT6b3KGN/xray-sample.png)
 
