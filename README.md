@@ -25,7 +25,18 @@ The project has the following structure:
 - `output/`: model configurations, weights and figures exported from the notebooks
 
 
-## Reproducing solution
+## Working with the repo
+
+### Environment
+
+To work with the repo, I recommend to create a virtual Conda environment from the `environment.yml` file:
+```
+conda env create --name ranzcr --file environment.yml
+conda activate ranzcr
+```
+
+
+### Reproducing solution
 
 The solution can be reproduced in the following steps:
 1. Downloading competition data and placing it in the `input/` folder.
