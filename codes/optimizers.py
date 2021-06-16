@@ -1,4 +1,12 @@
-####### OPTIMIZER PREP
+####### OPTIMIZER & SCHEDULER PREP
+
+import torch.optim as optim
+from adamp import AdamP
+
+from warmup_scheduler import GradualWarmupScheduler 
+from torch.optim import lr_scheduler
+from torch.optim.lr_scheduler import CosineAnnealingWarmRestarts, ReduceLROnPlateau
+
 
 def get_optimizer(CFG, model):
                    

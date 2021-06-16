@@ -1,13 +1,17 @@
 ####### MODEL PREP
 
+import timm
+import torch
+import torch.nn as nn
+
 def get_model(CFG, device):
 
     if CFG['weights'] != 'public':
 
         # convolutional part
         model = timm.create_model(model_name = CFG['backbone'], 
-                                pretrained = False if CFG['weights'] == 'empty' else True,
-                                in_chans   = CFG['channels'])
+                                  pretrained = False if CFG['weights'] == 'empty' else True,
+                                  in_chans   = CFG['channels'])
 
         # classifier part                            
         if 'efficient' in CFG['backbone']:
@@ -33,8 +37,8 @@ def get_model(CFG, device):
                 self.fc                = nn.Linear(n_features, out_dim)
 
             def forward(self, x):
-                bs       = x.size(0)
-                features = self.model(x)
+                bs              = x.size(0)
+                features        = self.model(x)
                 pooled_features = self.pooling(features).view(bs, -1)
                 output          = self.fc(pooled_features)
                 return output
@@ -42,7 +46,7 @@ def get_model(CFG, device):
         # initialize
         model = CustomModel(CFG['backbone'], CFG['num_classes'], False)
 
-    # swrapper for TPU
+    # wrapper for TPU
     if CFG['device'] == 'TPU':
         model = xmp.MpModelWrapper(model)
 

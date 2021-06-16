@@ -1,5 +1,16 @@
 ####### TRAINING
 
+import timm
+from timm.utils import *
+
+from utilities import *
+
+import torch
+from tqdm import tqdm
+
+import numpy as np
+
+
 def train_epoch(loader, model, optimizer, scheduler, criterion, epoch, CFG, device):
        
     # switch regime
