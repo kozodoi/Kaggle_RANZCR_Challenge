@@ -29,9 +29,9 @@ The project has the following structure:
 
 ### Environment
 
-To work with the repo, I recommend to create a virtual Conda environment from the `environment.yml` file:
+To work with the repo, I recommend to create a virtual Conda environment from the `environment.yaml` file:
 ```
-conda env create --name ranzcr --file environment.yml
+conda env create --name ranzcr --file environment.yaml
 conda activate ranzcr
 ```
 
