@@ -2,6 +2,7 @@
 
 import torch.nn as nn
 
+
 class FocalCosineLoss(nn.Module):
     
     def __init__(self, alpha = 1, gamma = 2, xent = 0.1, reduction = "mean"):
@@ -25,6 +26,13 @@ class FocalCosineLoss(nn.Module):
 
 
 def get_losses(CFG, device, epoch = None):
+    
+    '''
+    Get training and validation loss functions
+    '''
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
 
     # define training loss
     if CFG['loss_fn'] == 'BCE':

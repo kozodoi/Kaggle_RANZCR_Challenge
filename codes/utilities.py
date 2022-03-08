@@ -4,6 +4,8 @@ import os
 import numpy as np
 import random
 import torch
+from sklearn.metrics import roc_auc_score
+
 
 # competition metric
 def get_score(y_true, y_pred):
@@ -33,6 +35,7 @@ def smart_save(weights, path, CFG):
 
 # randomness
 def seed_everything(seed, CFG):
+    assert isinstance(seed, int), 'seed has to be an integer'
     os.environ['PYTHONHASHSEED'] = str(seed)
     random.seed(seed)
     np.random.seed(seed)

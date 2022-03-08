@@ -78,8 +78,19 @@ class ImageData(Dataset):
 
 ####### DATA PREP
 
-def get_data(df, fold, CFG):
+def get_data(df, 
+             fold, 
+             CFG):
 
+    '''
+    Get training and validation data
+    '''
+
+    # tests
+    assert isinstance(df,   pd.DataFrame), 'df has to be a pandas dataframe'
+    assert isinstance(fold, int),          'fold has to be an integer'
+    assert isinstance(CFG,  dict),         'CFG has to be a dict with parameters'
+    
     # load splits
     df_train = df.loc[df.fold != fold].reset_index(drop = True)
     df_valid = df.loc[df.fold == fold].reset_index(drop = True)     
@@ -103,7 +114,22 @@ def get_data(df, fold, CFG):
 
 ####### LOADERS PREP
 
-def get_loaders(df_train, df_valid, CFG, epoch = None):
+def get_loaders(df_train, 
+                df_valid, 
+                CFG, 
+                epoch = None):
+    
+    '''
+    Get training and validation dataloaders
+    '''
+    
+    ##### PREPARATIONS
+    
+    # tests
+    assert isinstance(df_train, pd.DataFrame), 'df_train has to be a pandas dataframe'
+    assert isinstance(df_valid, pd.DataFrame), 'df_valid has to be a pandas dataframe'
+    assert isinstance(CFG, dict),              'CFG has to be a dict with parameters'
+    
 
     ##### EPOCH-BASED PARAMS
 
@@ -157,7 +183,7 @@ def get_loaders(df_train, df_valid, CFG, epoch = None):
                                            shuffle        = False)
         
     ##### DATA LOADERS
-       
+    
     # data loaders
     train_loader = DataLoader(dataset     = train_dataset, 
                               batch_size  = CFG['batch_size'], 

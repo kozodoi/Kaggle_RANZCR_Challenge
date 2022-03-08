@@ -11,9 +11,24 @@ import pandas as pd
 import numpy as np
 
 
-def run_fold(fold, df_trn, df_val, CFG, model, device):
+def run_fold(fold, 
+             df_trn, 
+             df_val, 
+             CFG, 
+             model, 
+             device):
+    
+    '''
+    Run training and validation on a single fold
+    '''
 
     ##### PREPARATIONS
+    
+    # tests
+    assert isinstance(CFG,    dict),         'CFG has to be a dict with parameters'
+    assert isinstance(df_trn, pd.DataFrame), 'df_trn has to be a pandas dataframe'
+    assert isinstance(df_val, pd.DataFrame), 'df_val has to be a pandas dataframe'
+    assert isinstance(fold,   int),          'fold has to be an integer'
     
     # reset seed
     seed_everything(CFG['seed'] + fold, CFG)

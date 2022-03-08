@@ -5,7 +5,22 @@ import seaborn as sns
 import numpy as np
 
 
-def plot_results(trn_losses, val_losses, val_metrics, fold, CFG):
+def plot_results(trn_losses, 
+                 val_losses, 
+                 val_metrics, 
+                 fold, 
+                 CFG):
+    
+    '''
+    Plot modeling results
+    '''
+    
+    # tests
+    assert isinstance(trn_losses,  list), 'trn_losses has to be a list'
+    assert isinstance(val_losses,  list), 'val_losses has to be a list'
+    assert isinstance(val_metrics, list), 'val_metrics has to be a list'
+    assert isinstance(CFG,         dict), 'CFG has to be a dict with parameters'
+    assert isinstance(fold,        int),  'fold has to be an integer'
 
     # plot loss lines
     plt.figure(figsize = (20, 8))

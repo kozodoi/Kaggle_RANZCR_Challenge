@@ -11,8 +11,22 @@ from tqdm import tqdm
 import numpy as np
 
 
-def train_epoch(loader, model, optimizer, scheduler, criterion, epoch, CFG, device):
-       
+def train_epoch(loader, 
+                model, 
+                optimizer, 
+                scheduler, 
+                criterion, 
+                epoch, 
+                CFG, 
+                device):
+    
+    '''
+    Run training epoch
+    '''
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+    
     # switch regime
     model.train()
 

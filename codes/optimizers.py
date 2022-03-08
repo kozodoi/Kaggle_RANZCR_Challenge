@@ -8,8 +8,17 @@ from torch.optim import lr_scheduler
 from torch.optim.lr_scheduler import CosineAnnealingWarmRestarts, ReduceLROnPlateau
 
 
-def get_optimizer(CFG, model):
-                   
+def get_optimizer(CFG, 
+                  model):
+    
+    '''
+    Get optimizer and scheduler
+    '''
+    
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+    
+    
     ##### OPTIMIZER
 
     # scale learning rates

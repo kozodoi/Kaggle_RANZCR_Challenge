@@ -6,13 +6,24 @@ import cv2
 import numpy as np
 
 
-def get_augs(CFG, image_size = None, p_aug = None):
+def get_augs(CFG, 
+             image_size = None, 
+             p_aug      = None):
+    
+    '''
+    Get train and test augmentations
+    '''
 
     # update epoch-based parameters
     if image_size is None:
         image_size = CFG['image_size']
     if p_aug is None:
         p_aug = CFG['p_aug']
+        
+    # tests
+    assert isinstance(CFG, dict), 'CFG has to be a dict with parameters'
+    assert 0 <= p_aug <= 1,       'p_aug has to be between 0 and 1'
+    assert image_size > 0,        'image_size has to be positive'
 
     # normalization
     if CFG['normalize']:
@@ -72,7 +83,7 @@ def get_augs(CFG, image_size = None, p_aug = None):
 
 
 ####### TTA FLIPS
- 
+
 '''
 Based on https://github.com/haqishen/SIIM-ISIC-Melanoma-Classification-1st-Place-Solution
 '''
